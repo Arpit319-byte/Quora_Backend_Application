@@ -13,6 +13,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseClass {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     protected Long id;
