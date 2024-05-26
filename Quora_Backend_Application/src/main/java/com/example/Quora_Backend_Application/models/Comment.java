@@ -1,6 +1,5 @@
 package com.example.Quora_Backend_Application.models;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
