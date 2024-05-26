@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
+import java.util.UUID;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -15,8 +16,8 @@ public abstract class BaseClass {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    protected Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected UUID id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
