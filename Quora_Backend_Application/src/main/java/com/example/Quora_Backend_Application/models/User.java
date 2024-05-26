@@ -21,5 +21,4 @@ public class User extends BaseClass {
     @Column(nullable = false)
     private String bio;
 
-
 }
