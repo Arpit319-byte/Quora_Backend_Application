@@ -3,7 +3,6 @@ package com.example.Quora_Backend_Application.models;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -21,6 +20,7 @@ public abstract class BaseClass {
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
+    @Column(nullable = false)
     protected Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
