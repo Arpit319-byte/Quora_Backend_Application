@@ -2,6 +2,7 @@ package com.example.Quora_Backend_Application.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 
@@ -21,5 +22,8 @@ public class Comment extends BaseClass{
 
     @OneToOne
     private User user;
+
+    @ManyToOne
+    private Like like;
 
 }
