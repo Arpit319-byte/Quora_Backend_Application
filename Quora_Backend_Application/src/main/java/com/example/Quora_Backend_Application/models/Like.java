@@ -1,10 +1,13 @@
 package com.example.Quora_Backend_Application.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
+@Table(name = "likes")
 @Getter
 @Setter
 @Builder
@@ -13,10 +16,10 @@ import lombok.*;
 public class Like extends BaseClass{
 
 
-    @OneToMany
+    @ManyToOne
     private Comment comment;
 
-    @OneToMany
+    @ManyToOne
     private User user;
 
 

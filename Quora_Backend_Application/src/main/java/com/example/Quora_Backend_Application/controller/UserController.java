@@ -1,0 +1,47 @@
+package com.example.Quora_Backend_Application.controller;
+
+import com.example.Quora_Backend_Application.models.User;
+import com.example.Quora_Backend_Application.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+
+    UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable UUID userId) {
+        User user = userService.getUserById(userId);
+
+        if (user != null)
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        else
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+    }
+
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<String> deleteUserById(@PathVariable UUID userId) {
+        if (userService.deleteUserById(userId))
+            return new ResponseEntity<>("User Deleted Successfully", HttpStatus.OK);
+        else
+            return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
+    }
+}
