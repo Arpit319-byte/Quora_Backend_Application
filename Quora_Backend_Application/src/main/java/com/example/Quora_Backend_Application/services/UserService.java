@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService{
@@ -20,6 +21,10 @@ public class UserService{
 
     public User getUserById(Long userId){
         return userRepository.findById(userId).orElse(null);
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 
     public boolean deleteUserById(Long userId){
@@ -46,7 +51,6 @@ public class UserService{
             user1.setUpdatedOn(new Date());
             return userRepository.save(user1);
         }
-
         return null;
     }
 
