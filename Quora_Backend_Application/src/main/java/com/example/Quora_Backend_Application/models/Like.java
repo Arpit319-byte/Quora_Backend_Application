@@ -13,7 +13,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Like extends BaseClass{
+public class Like extends BaseModel{
 
 
     @ManyToOne

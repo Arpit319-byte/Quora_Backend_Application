@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Topic extends BaseClass {
+public class Topic extends BaseModel{
 
     @Column(nullable = false)
     private String name;

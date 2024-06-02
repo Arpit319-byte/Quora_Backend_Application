@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Comment extends BaseClass{
+public class Comment extends BaseModel{
 
     @Column(nullable = false)
     private String text;

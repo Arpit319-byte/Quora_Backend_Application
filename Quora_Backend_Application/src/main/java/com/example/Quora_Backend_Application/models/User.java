@@ -14,8 +14,8 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-public class User extends BaseClass {
+@Builder
+public class User extends BaseModel {
 
     @Column(nullable = false)
     private String name;

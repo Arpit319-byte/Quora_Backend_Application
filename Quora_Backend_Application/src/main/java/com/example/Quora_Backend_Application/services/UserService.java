@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Service
 public class UserService{
@@ -19,11 +18,11 @@ public class UserService{
     }
 
 
-    public User getUserById(UUID userId){
+    public User getUserById(Long userId){
         return userRepository.findById(userId).orElse(null);
     }
 
-    public boolean deleteUserById(UUID userId){
+    public boolean deleteUserById(Long userId){
 
         if(userRepository.existsById(userId)){
             userRepository.deleteById(userId);
@@ -35,6 +34,20 @@ public class UserService{
 
     public User createUser(User user){
         return userRepository.save(user);
+    }
+
+    public User updateUser(Long userId,User user){
+        User user1=userRepository.findById(userId).orElse(null);
+
+        if(user1!=null){
+            user1.setName(user.getName());
+            user1.setBio(user.getBio());
+            user1.setEmail(user.getEmail());
+            user1.setUpdatedOn(new Date());
+            return userRepository.save(user1);
+        }
+
+        return null;
     }
 
 

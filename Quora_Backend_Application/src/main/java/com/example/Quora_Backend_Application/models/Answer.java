@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Answer extends BaseClass{
+public class Answer extends BaseModel{
 
     @Column(nullable = false)
     private String text;

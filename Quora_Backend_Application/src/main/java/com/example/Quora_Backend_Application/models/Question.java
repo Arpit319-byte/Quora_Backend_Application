@@ -14,7 +14,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Question extends BaseClass {
+public class Question extends BaseModel {
 
     @Column(nullable = false)
     private String title;
