@@ -40,12 +40,10 @@ public class AnswerController {
 
     @DeleteMapping("/answer/{answerId}")
     public ResponseEntity<String> deleteAnswer(@PathVariable Long answerId){
-
-        Answer answer= answerService.getAnswerById(answerId);
-        if(answer!=null) {
-            answerService.deleteAnswerById(answerId);
+        Answer answer= answerService.deleteAnswerById(answerId);
+        if(answer!=null)
             return new ResponseEntity<>("Answer Deleted Successfully", HttpStatus.OK);
-        }
+
         else
             return new ResponseEntity<>("Answer Not Found", HttpStatus.NOT_FOUND);
     }
